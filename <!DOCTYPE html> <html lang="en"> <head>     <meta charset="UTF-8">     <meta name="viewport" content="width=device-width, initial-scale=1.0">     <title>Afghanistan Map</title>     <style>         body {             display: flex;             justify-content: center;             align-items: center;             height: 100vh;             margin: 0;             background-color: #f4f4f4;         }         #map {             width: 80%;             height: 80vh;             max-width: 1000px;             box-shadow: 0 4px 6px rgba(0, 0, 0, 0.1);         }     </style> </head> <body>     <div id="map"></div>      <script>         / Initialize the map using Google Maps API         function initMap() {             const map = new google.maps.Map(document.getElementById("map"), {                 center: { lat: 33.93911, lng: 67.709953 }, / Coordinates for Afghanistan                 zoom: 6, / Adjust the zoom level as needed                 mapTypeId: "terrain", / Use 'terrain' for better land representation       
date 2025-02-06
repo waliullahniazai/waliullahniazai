@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afghanistan Map</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        #map {
+            width: 80%;
+            height: 80vh;
+            max-width: 1000px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map using Google Maps API
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 33.93911, lng: 67.709953 }, // Coordinates for Afghanistan
+                zoom: 6, // Adjust the zoom level as needed
+                mapTypeId: "terrain", // Use 'terrain' for better land representation
+            });
+
+            // Add a marker for Afghanistan's capital, Kabul
+            const kabul = { lat: 34.516472, lng: 69.161452 };
+            new google.maps.Marker({
+                position: kabul,
+                map: map,
+                title: "Kabul, Afghanistan",
+            });
+        }
+    </script>
+
+    <!-- Load the Google Maps JavaScript API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>
